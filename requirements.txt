@@ -1,3 +1,5 @@
 openai>=1.0.0
 python-dotenv
 PyPDF2
+flask
+flask-cors
