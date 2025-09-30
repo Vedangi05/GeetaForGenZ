@@ -1,17 +1,20 @@
-from agent import AIAgent
+from agent import StoryAgent
 
 def main():
-    agent = AIAgent()
+    agent = StoryAgent()
 
-    print("🤖 Simple AI Agent (type 'exit' to quit)")
+    print("📖 Bhagwat Gita Storyteller (type 'exit' to quit)")
     while True:
-        user_input = input("You: ")
-        if user_input.lower() in ["exit", "quit"]:
+        quote = input("\nEnter a Bhagwat Gita quote/shloka: ")
+        if quote.lower() in ["exit", "quit"]:
             print("Agent: Goodbye 👋")
             break
 
-        response = agent.ask(user_input)
-        print(f"Agent: {response}")
+        try:
+            story = agent.create_story(quote)
+            print(f"\nAgent's Story:\n{story}")
+        except Exception as e:
+            print(f"⚠️ Error: {e}")
 
 if __name__ == "__main__":
     main()
